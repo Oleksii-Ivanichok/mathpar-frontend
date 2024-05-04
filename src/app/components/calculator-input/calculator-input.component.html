@@ -1,1 +1,34 @@
-<p>calculator-input works!</p>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-actions>
+      <button mat-icon-button (click)="calculate()">
+        <mat-icon fontIcon="play_arrow"></mat-icon>
+      </button>
+      <button mat-icon-button (click)="mathJaxEnabled = !mathJaxEnabled">
+        <mat-icon fontIcon="shuffle"></mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+    @if (mathJaxEnabled) {
+      <div [mathjax]="mathJaxInput" (click)="mathJaxEnabled = !mathJaxEnabled"></div>
+    } @else {
+      <textarea
+        [formControl]="calculatorInput"
+        matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="2"
+      ></textarea>
+    }
+  </mat-card-content>
+  <mat-divider></mat-divider>
+
+  @if (calculationResult && !mathJaxEnabled) {
+    <mat-card-content>
+      <div [innerHTML]="calculationResult"></div>
+    </mat-card-content>
+  }
+
+</mat-card>
