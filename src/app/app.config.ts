@@ -6,5 +6,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {MathjaxModule} from "mathjax-angular";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideAnimationsAsync(), provideAnimationsAsync(), importProvidersFrom(MathjaxModule.forRoot())]
+  providers: [provideRouter(routes), provideAnimationsAsync(), provideAnimationsAsync(),
+    importProvidersFrom(MathjaxModule.forRoot())]
 };
