@@ -1,2 +1,9 @@
 <app-tool-bar></app-tool-bar>
-<app-calculator-input></app-calculator-input>
+<div>
+  @for (input of calculatorInputs; track input.id) {
+    <app-calculator-input [formControl]="input.control" [isActive]="input.isActive" (setActive)="setActive(input.id)" (delete)="deleteInput(input.id)"/>
+  } @empty {
+    Add a new input to get started
+  }
+  <button mat-flat-button color="accent" (click)="addInput()">Add new input</button>
+</div>

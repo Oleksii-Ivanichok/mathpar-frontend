@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, Output} from '@angular/core';
 import {MatButtonModule, MatIconButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
@@ -34,11 +34,10 @@ import {ToolBarButtonComponent} from "../tool-bar/components/tool-bar-button/too
   styleUrl: './calculator-input.component.scss'
 })
 export class CalculatorInputComponent {
-  calculatorInput = new FormControl<string>('SPACE = R64[x, y];\n' +
-    'f1 = \\sin(x);\n' +
-    'f2 = \\sin(\\cos(x + \\tg(y)));\n' +
-    'f3 = \\sin(x^2) + y;\n' +
-    '\\print(f1, f2, f3);', {nonNullable: true});
+  @Input() formControl!: FormControl<string>;
+  @Input() isActive!: boolean;
+  @Output() setActive = new EventEmitter<void>();
+  @Output() delete = new EventEmitter<void>();
   calculationResult: string = '';
   mathJaxEnabled = false;
   mathJaxInput: string = '';
@@ -47,7 +46,7 @@ export class CalculatorInputComponent {
   }
 
   calculate() {
-    this.commandsService.calculate({task: this.calculatorInput.value}).subscribe((response: CalculateResult) => {
+    this.commandsService.calculate({task: this.formControl.value}).subscribe((response: CalculateResult) => {
       this.calculationResult = response.result.replace(/\n/g, '<br>');
       this.mathJaxInput = response.latex.replace(/\n\n/g, '<br>');
       this.mathJaxEnabled = true;

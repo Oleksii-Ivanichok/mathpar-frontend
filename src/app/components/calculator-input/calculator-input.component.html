@@ -7,6 +7,9 @@
       <button mat-icon-button (click)="mathJaxEnabled = !mathJaxEnabled">
         <mat-icon fontIcon="shuffle"></mat-icon>
       </button>
+      <button mat-icon-button (click)="delete.emit()">
+        <mat-icon fontIcon="close"></mat-icon>
+      </button>
     </mat-card-actions>
   </mat-card-header>
   <mat-divider></mat-divider>
@@ -16,10 +19,11 @@
       <div [mathjax]="mathJaxInput" (click)="mathJaxEnabled = !mathJaxEnabled"></div>
     } @else {
       <textarea
-        [formControl]="calculatorInput"
+        [formControl]="formControl"
         matInput
         cdkTextareaAutosize
         cdkAutosizeMinRows="2"
+        (focus)="setActive.emit()"
       ></textarea>
     }
   </mat-card-content>

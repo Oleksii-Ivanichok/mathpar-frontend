@@ -1,5 +1,18 @@
 <app-tool-bar-expansion [title]="'Space R64[x,y,z,t]'">
-  <app-tool-bar-button [title]="'When $a \\ne 0$, there are ftwo solutions to $\\frac{5}{9}$'"></app-tool-bar-button>
-  <app-tool-bar-button [title]="'$R64$'"></app-tool-bar-button>
-  <app-tool-bar-button [title]="'$\\underbrace{az}$'"></app-tool-bar-button>
+  <app-tool-bar-button [title]="'$Z$'" [expression]="'SPACE = Z[];'" [moveBack]="2" [description]="'Ring of integer numbers'"/>
+  <app-tool-bar-button [title]="'$Zp$'" [expression]="'SPACE = Zp[];'" [moveBack]="2" [description]="'Finite field Z/pZ. Set the module p with the MOD constant'"/>
+  <app-tool-bar-button [title]="'$Zp32$'" [expression]="'SPACE = Zp32[];'" [moveBack]="2" [description]="'Finite field with 32 bit words. Set the module p with the MOD32 constant'"/>
+  <app-tool-bar-button [title]="'$Z64$'" [expression]="'SPACE = Z64[];'" [moveBack]="2" [description]="'Ring of integer numbers with 64 bit words'"/>
+  <app-tool-bar-button [title]="'$Q$'" [expression]="'SPACE = Q[];'" [moveBack]="2" [description]="'Field of fractions over integer numbers Z'"/>
+  <app-tool-bar-button [title]="'$R$'" [expression]="'SPACE = R[];'" [moveBack]="2" [description]="'Real numbers'"/>
+  <app-tool-bar-button [title]="'$R64$'" [expression]="'SPACE = R64[];'" [moveBack]="2" [description]="'Real number which based on double type with 64 bit word'"/>
+  <app-tool-bar-button [title]="'$R128$'" [expression]="'SPACE = R128[];'" [moveBack]="2" [description]="'Floating-point 64-bit numbers equipped with optional 64-bit for the order'"/>
+  <app-tool-bar-button [title]="'$C$'" [expression]="'SPACE = C[];'" [moveBack]="2" [description]="'Complex numbers over R'"/>
+  <app-tool-bar-button [title]="'$C64$'" [expression]="'SPACE = C64[];'" [moveBack]="2" [description]="'Complex numbers over R64'"/>
+  <app-tool-bar-button [title]="'$C128$'" [expression]="'SPACE = C128[];'" [moveBack]="2" [description]="'Complex numbers over R128'"/>
+  <app-tool-bar-button [title]="'$CZ$'" [expression]="'SPACE = CZ[];'" [moveBack]="2" [description]="'Complex numbers over Z'"/>
+  <app-tool-bar-button [title]="'$CZp$'" [expression]="'SPACE = CZp[];'" [moveBack]="2" [description]="'Complex numbers over Zp'"/>
+  <app-tool-bar-button [title]="'$CZp32$'" [expression]="'SPACE = CZp32[];'" [moveBack]="2" [description]="'Complex numbers over Zp32'"/>
+  <app-tool-bar-button [title]="'$CZ64$'" [expression]="'SPACE = CZ64[];'" [moveBack]="2" [description]="'Complex numbers over Z64'"/>
+  <app-tool-bar-button [title]="'$CQ$'" [expression]="'SPACE = CQ[];'" [moveBack]="2" [description]="'Complex numbers over Q'"/>
 </app-tool-bar-expansion>
