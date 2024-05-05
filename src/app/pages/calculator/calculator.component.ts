@@ -1,10 +1,10 @@
-import {Component, input, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CalculatorInputComponent} from "../../components/calculator-input/calculator-input.component";
 import {ToolBarComponent} from "../../components/tool-bar/tool-bar.component";
 import {MatButton} from "@angular/material/button";
-import {FormControl} from "@angular/forms";
 import {InputEmitterService} from "../../services/input-emitter.service";
 import {Subject, takeUntil} from "rxjs";
+import {CalculatorInput} from "../../interfaces/interfaces";
 
 @Component({
   selector: 'app-calculator',
@@ -19,14 +19,17 @@ import {Subject, takeUntil} from "rxjs";
 })
 export class CalculatorComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<void>();
-  lastActiveIndex: number = 1;
+  lastActiveIndex: number = 0;
   uniqueIdCounter: number = 1;
-  calculatorInputs = [{
-    control: new FormControl('SPACE = R64[x, y];\n' +
-      'f1 = \\sin(x);\n' +
-      'f2 = \\sin(\\cos(x + \\tg(y)));\n' +
-      'f3 = \\sin(x^2) + y;\n' +
-      '\\print(f1, f2, f3);', {nonNullable: true}), isActive: true, id: 0
+  calculatorInputs: CalculatorInput[] = [{
+    expressionData: {
+      expression: 'SPACE = R64[x, y];\n' +
+        'f1 = \\sin(x);\n' +
+        'f2 = \\sin(\\cos(x + \\tg(y)));\n' +
+        'f3 = \\sin(x^2) + y;\n' +
+        '\\print(f1, f2, f3);',
+      moveBack: 0
+    }, isActive: true, id: 0
   }];
 
   constructor(private inputEmitterService: InputEmitterService) {
@@ -36,7 +39,7 @@ export class CalculatorComponent implements OnInit, OnDestroy {
     this.inputEmitterService.expression$.pipe(
       takeUntil(this.destroy$)
     ).subscribe(value => {
-      this.calculatorInputs[this.lastActiveIndex].control.setValue(value.expression);
+      this.calculatorInputs[this.lastActiveIndex] ? this.calculatorInputs[this.lastActiveIndex].expressionData = value : null;
     })
   }
 
@@ -48,7 +51,7 @@ export class CalculatorComponent implements OnInit, OnDestroy {
 
   addInput() {
     this.calculatorInputs.push({
-      control: new FormControl('', {nonNullable: true}),
+      expressionData: {expression: ''},
       isActive: false,
       id: this.uniqueIdCounter++
     });

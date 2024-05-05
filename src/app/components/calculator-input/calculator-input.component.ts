@@ -1,4 +1,7 @@
-import {Component, EventEmitter, Input, OnDestroy, Output} from '@angular/core';
+import {
+  Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import {MatButtonModule, MatIconButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
@@ -8,7 +11,7 @@ import {MatInput} from "@angular/material/input";
 import {CdkTextareaAutosize} from "@angular/cdk/text-field";
 import {FormControl, ReactiveFormsModule} from "@angular/forms";
 import {CommandsService} from "../../services/commands.service";
-import {CalculateResult} from "../../interfaces/interfaces";
+import {CalculateResult, ExpressionData} from "../../interfaces/interfaces";
 import {NgIf} from "@angular/common";
 import {MathjaxModule} from "mathjax-angular";
 import {ToolBarButtonComponent} from "../tool-bar/components/tool-bar-button/tool-bar-button.component";
@@ -33,11 +36,14 @@ import {ToolBarButtonComponent} from "../tool-bar/components/tool-bar-button/too
   templateUrl: './calculator-input.component.html',
   styleUrl: './calculator-input.component.scss'
 })
-export class CalculatorInputComponent {
-  @Input() formControl!: FormControl<string>;
+export class CalculatorInputComponent implements OnChanges {
+  @ViewChild('input') inputRef!: ElementRef<HTMLTextAreaElement>;
+  @Input() expressionData!: ExpressionData;
   @Input() isActive!: boolean;
   @Output() setActive = new EventEmitter<void>();
   @Output() delete = new EventEmitter<void>();
+
+  formControl: FormControl<string> = new FormControl<string>('', {nonNullable: true});
   calculationResult: string = '';
   mathJaxEnabled = false;
   mathJaxInput: string = '';
@@ -45,14 +51,32 @@ export class CalculatorInputComponent {
   constructor(private commandsService: CommandsService) {
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['expressionData']) {
+      if (this.inputRef) {
+        const cursorPosition = this.inputRef.nativeElement.selectionStart;
+        const insertedValue = this.expressionData.expression;
+        const currentValue = this.formControl.value;
+        const newValue = [
+          currentValue.slice(0, cursorPosition),
+          insertedValue,
+          currentValue.slice(cursorPosition)
+        ].join('');
+        this.formControl.setValue(newValue);
+        if (this.expressionData.moveBack) {
+          this.inputRef.nativeElement.selectionStart = this.inputRef.nativeElement.selectionEnd = cursorPosition + insertedValue.length - this.expressionData.moveBack;
+        }
+        this.inputRef.nativeElement.focus();
+      }
+    }
+  }
+
   calculate() {
     this.commandsService.calculate({task: this.formControl.value}).subscribe((response: CalculateResult) => {
       this.calculationResult = response.result.replace(/\n/g, '<br>');
       this.mathJaxInput = response.latex.replace(/\n\n/g, '<br>');
       this.mathJaxEnabled = true;
-      // console.log(response);
-      // console.log('this.calculatorInput.value', this.calculatorInput.value);
-      // console.log('this.mathJaxInput', this.mathJaxInput);
     });
   }
+
 }

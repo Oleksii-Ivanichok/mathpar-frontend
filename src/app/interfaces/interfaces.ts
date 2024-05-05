@@ -5,7 +5,14 @@ export interface CalculateResult {
   result: string;
   latex: string;
 }
+export interface CalculatorInput {
+  expressionData: ExpressionData;
+  isActive: boolean;
+  id: number;
+}
 export interface ExpressionData {
   expression: string;
   moveBack?: number;
 }
+
+
