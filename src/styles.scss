@@ -1,5 +1,23 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-mat-icon{
-  margin: 0;
+
+// Material
+.fix-letter-icon{
+  position: absolute;
+  bottom: 12px;
 }
+
+:root {
+  --accent-color: #ff4081;
+  --accent-text-color: white;
+}
+
+.bg-accent{
+  background: var(--accent-color) !important;
+  --mat-expansion-header-indicator-color: var(--accent-text-color);
+  --mat-expansion-header-text-color: var(--accent-text-color);
+  &:hover{
+    background: var(--accent-color) !important;
+  }
+}
+

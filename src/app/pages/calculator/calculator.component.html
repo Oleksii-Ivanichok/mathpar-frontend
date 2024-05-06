@@ -1,11 +1,14 @@
 <app-tool-bar></app-tool-bar>
 <div>
   @for (input of calculatorInputs; track input.id) {
-    <app-calculator-input [expressionData]="input.expressionData" [isActive]="input.isActive" (setActive)="setActive(input.id)" (delete)="deleteInput(input.id)"/>
+    <app-calculator-input [expressionData]="input.expressionData" [isActive]="input.isActive"
+                          (setActive)="setActive(input.id)" (deleteInput)="deleteInput(input.id)"
+                          (addInput)="addInput(input.id)"
+    />
   } @empty {
     <div>
       Add a new input to get started
+      <button mat-flat-button color="accent" (click)="addInput()">Add new input</button>
     </div>
   }
-  <button mat-flat-button color="accent" (click)="addInput()">Add new input</button>
 </div>

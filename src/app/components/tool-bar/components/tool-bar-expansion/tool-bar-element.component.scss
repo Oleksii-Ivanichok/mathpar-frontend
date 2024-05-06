@@ -1,0 +1,13 @@
+mat-panel-title {
+  justify-content: center;
+}
+mat-expansion-panel.toolbar-expansion{
+  mat-expansion-panel-header{
+    margin: 2px;
+  }
+  --mat-expansion-header-collapsed-state-height: 40px;
+  --mat-expansion-header-expanded-state-height: 40px;
+  .mat-expansion-panel-body {
+    padding: 0 5px 5px;
+  }
+}

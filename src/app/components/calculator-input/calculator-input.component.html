@@ -1,18 +1,23 @@
 <mat-card class="example-card">
   <mat-card-header>
     <mat-card-actions>
-      <button mat-icon-button (click)="calculate()">
+      <button mat-mini-fab color="accent" (click)="calculate()">
         <mat-icon fontIcon="play_arrow"></mat-icon>
       </button>
-      <button mat-icon-button (click)="mathJaxEnabled = !mathJaxEnabled">
+      <button mat-mini-fab color="accent" (click)="mathJaxEnabled = !mathJaxEnabled">
         <mat-icon fontIcon="shuffle"></mat-icon>
       </button>
-      <button mat-icon-button (click)="delete.emit()">
+      <button mat-mini-fab color="accent" (click)="addInput.emit()">
+        <mat-icon fontIcon="add"></mat-icon>
+      </button>
+      <button mat-mini-fab color="accent" (click)="deleteInput.emit()">
         <mat-icon fontIcon="close"></mat-icon>
+      </button>
+      <button mat-mini-fab color="accent" (click)="resetInput()">
+        <mat-icon fontIcon="C" class="fix-letter-icon"></mat-icon>
       </button>
     </mat-card-actions>
   </mat-card-header>
-  <mat-divider></mat-divider>
 
   <mat-card-content>
     @if (mathJaxEnabled) {
@@ -28,8 +33,6 @@
       ></textarea>
     }
   </mat-card-content>
-  <mat-divider></mat-divider>
-
   @if (calculationResult && !mathJaxEnabled) {
     <mat-card-content>
       <div [innerHTML]="calculationResult"></div>

@@ -41,11 +41,12 @@ export class CalculatorInputComponent implements OnChanges {
   @Input() expressionData!: ExpressionData;
   @Input() isActive!: boolean;
   @Output() setActive = new EventEmitter<void>();
-  @Output() delete = new EventEmitter<void>();
+  @Output() deleteInput = new EventEmitter<void>();
+  @Output() addInput = new EventEmitter<void>;
 
   formControl: FormControl<string> = new FormControl<string>('', {nonNullable: true});
   calculationResult: string = '';
-  mathJaxEnabled = false;
+  mathJaxEnabled: boolean = false;
   mathJaxInput: string = '';
 
   constructor(private commandsService: CommandsService) {
@@ -79,4 +80,10 @@ export class CalculatorInputComponent implements OnChanges {
     });
   }
 
+  resetInput() {
+    this.formControl.setValue('');
+    this.calculationResult = '';
+    this.mathJaxEnabled = false;
+    this.mathJaxInput = '';
+  }
 }

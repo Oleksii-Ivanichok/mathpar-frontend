@@ -1,3 +1,11 @@
 textarea{
   width: 100%;
+  font-size: 16px;
+}
+mat-card-header{
+  padding-top: 0;
+}
+mat-card-actions{
+  display: flex;
+  gap: 5px;
 }

@@ -48,16 +48,17 @@ export class CalculatorComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-
-  addInput() {
-    this.calculatorInputs.push({
+  addInput(id?: number) {
+    const index = this.calculatorInputs.findIndex(input => input.id === id) + 1;
+    this.calculatorInputs.splice(index || 0, 0, {
       expressionData: {expression: ''},
       isActive: false,
       id: this.uniqueIdCounter++
-    });
+    })
   }
 
-  setActive(index: number) {
+  setActive(id: number) {
+    const index = this.calculatorInputs.findIndex(input => input.id === id);
     this.calculatorInputs[this.lastActiveIndex].isActive = false;
     this.calculatorInputs[index].isActive = true;
     this.lastActiveIndex = index;
@@ -66,6 +67,5 @@ export class CalculatorComponent implements OnInit, OnDestroy {
   deleteInput(index: number) {
     this.calculatorInputs = this.calculatorInputs.filter(input => input.id !== index)
   }
-
 
 }

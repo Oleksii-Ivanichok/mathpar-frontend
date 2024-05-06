@@ -15,4 +15,182 @@
   <app-tool-bar-button [title]="'$CZp32$'" [expression]="'SPACE = CZp32[];'" [moveBack]="2" [description]="'Complex numbers over Zp32'"/>
   <app-tool-bar-button [title]="'$CZ64$'" [expression]="'SPACE = CZ64[];'" [moveBack]="2" [description]="'Complex numbers over Z64'"/>
   <app-tool-bar-button [title]="'$CQ$'" [expression]="'SPACE = CQ[];'" [moveBack]="2" [description]="'Complex numbers over Q'"/>
+
+  <app-tool-bar-expansion [title]="'Constants'">
+    <app-tool-bar-button [title]="'FLOATPOS'" [expression]="'FLOATPOS = ;'" [moveBack]="1" [description]="'Number of decimal places after the decimal point, which should appear in the print (default = 2)'"/>
+    <app-tool-bar-button [title]="'MachineEpsilonR64'" [expression]="'MachineEpsilonR64 = ;'" [moveBack]="1" [description]="'Machine Epsilon for number R64: binary places after the binary point (default = 36 bits)'"/>
+    <app-tool-bar-button [title]="'MachineEpsilonR'" [expression]="'MachineEpsilonR = ;'" [moveBack]="1" [description]="'Machine Epsilon for number R: decimal places after the decimal point (default = 29)'"/>
+    <app-tool-bar-button [title]="'MachineEpsilonR/Accuracy'" [expression]="'MachineEpsilonR = / ;'" [moveBack]="3" [description]="'MachineEpsilonR / Accuracy of rounding in arithmetic operations: decimal places after the decimal point (default = 29 / 34)'"/>
+    <app-tool-bar-button [title]="'MOD'" [expression]="'MOD = ;'" [moveBack]="1" [description]="'Module in the finite field Zp (default = 268435399)'"/>
+    <app-tool-bar-button [title]="'MOD32'" [expression]="'MOD32 = ;'" [moveBack]="1" [description]="'Module in the finite field Zp32 (default = 268435399) must be less then 2^{31}'"/>
+    <app-tool-bar-button [title]="'MODbaseP'" [expression]="'MODbaseP =[,];'" [moveBack]="2" [description]="' the basis [5,7] for MOD=5^n*7^m'"/>
+    <app-tool-bar-button [title]="'MODbaseP32'" [expression]="'MODbaseP32 =[,];'" [moveBack]="2" [description]="' the basis [5,7] for MOD32=5^n*7^m'"/>
+    <app-tool-bar-button [title]="'RADIAN'" [expression]="'RADIAN = ;'" [moveBack]="1" [description]="'Indicator of the angles measure: 1 = radians, 0 = degrees (default = 1)'"/>
+    <app-tool-bar-button [title]="'STEPBYSTEP'" [expression]="'STEPBYSTEP = ;'" [moveBack]="1" [description]="'Print the intermediate results: 1 = on, 0= off (default = 0)'"/>
+    <app-tool-bar-button [title]="'EXPAND'" [expression]="'EXPAND = ;'" [moveBack]="1" [description]="'Automatically expand all brackets: 1 = on, 0 = off (default = 1)'"/>
+    <app-tool-bar-button [title]="'SUBSTITUTION'" [expression]="'SUBSTITUTION = ;'" [moveBack]="1" [description]="'Replace all of the names  by expressions, which were introduced earlier: 1 = on, 0 = off (default = 1)'"/>
+    <app-tool-bar-button [title]="'TIMEOUT'" [expression]="'TIMEOUT = ;'" [moveBack]="1" [description]="'Timeout for tasks in seconds. An integer number at range of [1sec.: 300sec.] (default value is 15 seconds).'"/>
+  </app-tool-bar-expansion>
+
 </app-tool-bar-expansion>
+
+<app-tool-bar-expansion [title]="'Symbols'">
+  <app-tool-bar-expansion [title]="'Numbers, sets, inequalities, Boolean operators'">
+    <app-tool-bar-button [title]="'$i$'" [expression]="'\\i'" [description]="'Imaginary unit'"/>
+    <app-tool-bar-button [title]="'$e$'" [expression]="'\\e'" [description]="'The base of the natural logarithm'"/>
+    <app-tool-bar-button [title]="'$\\pi$'" [expression]="'\\pi'" [description]='"The ratio of length of a circle to it`s diameter"'/>
+    <app-tool-bar-button [title]="'$\\infty$'" [expression]="'\\infty'" [description]="'Infinity'"/>
+    <app-tool-bar-button [title]="'$\\emptyset$'" [expression]="'\\emptyset'" [description]="'Empty set'"/>
+    <app-tool-bar-button [title]="'$\\cup$'" [expression]="'\\cup'" [description]="'Union of sets'"/>
+    <app-tool-bar-button [title]="'$\\setminus$'" [expression]="'\\setminus'" [description]="'set minus'"/>
+    <app-tool-bar-button [title]="'$\\triangle$'" [expression]="'\\triangle'" [description]="'set symmetric minus'"/>
+    <app-tool-bar-button [title]="'$\'$'" [expression]="'\''" [description]="'complement to the set'"/>
+    <app-tool-bar-button [title]="'$\\cap$'" [expression]="'\\cap'" [description]="'Intersection of sets'"/>
+    <app-tool-bar-button [title]="'(a,b)'" [expression]="'\\(,\\)'" [moveBack]="3" [description]="'open interval'"/>
+    <app-tool-bar-button [title]="'[a,b]'" [expression]="'\\[,\\]'" [moveBack]="3" [description]="'closed interval'"/>
+    <app-tool-bar-button [title]="'(a,b]'" [expression]="'\\(,\\]'" [moveBack]="3" [description]="'half-open interval'"/>
+    <app-tool-bar-button [title]="'[a,b)'" [expression]="'\\[,\\)'" [moveBack]="3" [description]="'half-closed interval'"/>
+    <app-tool-bar-button [title]="'$\\ge$'" [expression]="'\\ge'" [description]="'greater or equal'"/>
+    <app-tool-bar-button [title]="'$\\ne$'" [expression]="'\\ne'" [description]="'not equal'"/>
+    <app-tool-bar-button [title]="'='" [expression]="'=='" [description]="'equal'"/>
+    <app-tool-bar-button [title]="'$\\le$'" [expression]="'\\le'" [description]="'less or equal'"/>
+    <app-tool-bar-button [title]="'$\\lor$'" [expression]="'\\lor'" [description]="'boolean OR'"/>
+    <app-tool-bar-button [title]="'$\\&$'" [expression]="'\\&'" [description]="'boolean AND'"/>
+    <app-tool-bar-button [title]="'$\\neg$'" [expression]="'\\neg'" [description]="'boolean NEGATE'"/>
+    <app-tool-bar-button [title]="'$\\Leftrightarrow$'" [expression]="'\\Leftrightarrow'" [description]="'boolean equivalent'"/>
+    <app-tool-bar-button [title]="'$\\implies$'" [expression]="'\\implies'" [description]="'boolean IMPLIES'"/>
+  </app-tool-bar-expansion>
+
+  <app-tool-bar-expansion [title]="'Other symbols'">
+    <app-tool-bar-button [title]="'$\\circ$'" [expression]="'\\circ'" [description]="'Circle'"/>
+    <app-tool-bar-button [title]="'$\\partial$'" [expression]="'\\partial'" [description]="'Partial derivative'"/>
+    <app-tool-bar-button [title]="'$\\nabla$'" [expression]="'\\nabla'" [description]="'Nabla'"/>
+    <app-tool-bar-button [title]="'$\\hbar$'" [expression]="'\\hbar'" [description]="'h crossed'"/>
+    <app-tool-bar-button [title]="'$\\to$'" [expression]="'\\to'" [description]="'Arrow'"/>
+    <app-tool-bar-button [title]="'$\\perp$'" [expression]="'\\perp'" [description]="'Perpendicular'"/>
+    <app-tool-bar-button [title]="'$\\parallel$'" [expression]="'\\parallel'" [description]="'Parallel lines'"/>
+    <app-tool-bar-button [title]="'$\\angle$'" [expression]="'\\angle'" [description]="'Angle'"/>
+    <app-tool-bar-button [title]="'$\\smile$'" [expression]="'\\smile'" [description]="'Arc of a circle'"/>
+    <app-tool-bar-button [title]="'$\\equiv$'" [expression]="'\\equiv'" [description]="'Equivalence'"/>
+    <app-tool-bar-button [title]="'$\\square$'" [expression]="'\\square'" [description]="'Square'"/>
+    <app-tool-bar-button [title]="'$\\blacksquare$'" [expression]="'\\blacksquare'" [description]="'Black square'"/>
+    <app-tool-bar-button [title]="'$\\approx$'" [expression]="'\\approx'" [description]="'Approximately equal'"/>
+    <app-tool-bar-button [title]="'$\\sim$'" [expression]="'\\sim'" [description]="'Similarity'"/>
+    <app-tool-bar-button [title]="'$\\in$'" [expression]="'\\in'" [description]="'Belongs'"/>
+    <app-tool-bar-button [title]="'$\\notin$'" [expression]="'\\notin'" [description]="'Not belong'"/>
+    <app-tool-bar-button [title]="'$\\owns$'" [expression]="'\\owns'" [description]="'Contains'"/>
+    <app-tool-bar-button [title]="'$\\subset$'" [expression]="'\\subset'" [description]="'Subset'"/>
+    <app-tool-bar-button [title]="'$\\subseteq$'" [expression]="'\\subseteq'" [description]="'Included'"/>
+    <app-tool-bar-button [title]="'$\\supset$'" [expression]="'\\supset'" [description]="'Superset'"/>
+    <app-tool-bar-button [title]="'$\\supseteq$'" [expression]="'\\supseteq'" [description]="'Not strictly included'"/>
+    <app-tool-bar-button [title]="'$\\exists$'" [expression]="'\\exists'" [description]="'Exists'"/>
+    <app-tool-bar-button [title]="'$\\nexists$'" [expression]="'\\nexists'" [description]="'Not exist'"/>
+    <app-tool-bar-button [title]="'$\\forall$'" [expression]="'\\forall'" [description]="'For all'"/>
+    <app-tool-bar-button [title]="'$\\vee$'" [expression]="'\\vee'" [description]="'Logical OR'"/>
+    <app-tool-bar-button [title]="'$\\wedge$'" [expression]="'\\wedge'" [description]="'Logical AND'"/>
+    <app-tool-bar-button [title]="'$\\oplus$'" [expression]="'\\oplus'" [description]="'Plus in a circle'"/>
+    <app-tool-bar-button [title]="'$\\otimes$'" [expression]="'\\otimes'" [description]="'Multiplication in a circle'"/>
+    <app-tool-bar-button [title]="'$\\coprod$'" [expression]="'\\coprod'" [description]="'Splitting or coproduct'"/>
+    <app-tool-bar-button [title]="'$\\hat a$'" [expression]="'\\hat'" [description]="'Hat over the symbol'"/>
+    <app-tool-bar-button [title]="'$\\bar a$'" [expression]="'\\bar'" [description]="'Bar over the symbol'"/>
+    <app-tool-bar-button [title]="'$\\tilde a$'" [expression]="'\\tilde'" [description]="'Tilde over the symbol'"/>
+    <app-tool-bar-button [title]="'$\\vec a$'" [expression]="'\\vec'" [description]="'Vector over the symbol'"/>
+    <app-tool-bar-button [title]="'$\\dot a$'" [expression]="'\\dot'" [description]="'Dot over the symbol'"/>
+    <app-tool-bar-button [title]="'$\\ddot a$'" [expression]="'\\ddot '" [description]="'2 dots over the symbol'"/>
+    <app-tool-bar-button [title]="'$\\widetilde{az}$'" [expression]="'\\widetilde{}'" [description]="'Tilde over the text'"/>
+    <app-tool-bar-button [title]="'$\\widehat{az}$'" [expression]="'\\widehat{}'" [description]="'Hat over the text'"/>
+    <app-tool-bar-button [title]="'$\\overline{az}$'" [expression]="'\\overline{}'" [description]="'Line over the text'"/>
+    <app-tool-bar-button [title]="'$\\overrightarrow{az}$'" [expression]="'\\overrightarrow{}'" [description]="'Rightarrow over the text'"/>
+    <app-tool-bar-button [title]="'$\\underbrace{az}$'" [expression]="'\\underbrace{}'" [description]="'Underbrace under the text'"/>
+    <app-tool-bar-button [title]="'$\\overbrace{az}$'" [expression]="'\\overbrace{}'" [description]="'Overbrace over the text'"/>
+    <app-tool-bar-button [title]="'$\\frac{a}{b}$'" [expression]="'\\frac{}{}'" [moveBack]="3" [description]="'Fraction with two levels'"/>
+    <app-tool-bar-button [title]="'$\\{$'" [expression]="'\\system(,)'" [moveBack]="2" [description]="'System AND (equalities, inequalities)'"/>
+    <app-tool-bar-button [title]="'$\[$'" [expression]="'\\systemOR(,)'" [moveBack]="2" [description]="'System OR (equalities, inequalities)'"/>
+    <app-tool-bar-button [title]="'$\\longleftrightarrow$'" [expression]="'\\longleftrightarrow'" [description]="'Long left-right arrow'"/>
+    <app-tool-bar-button [title]="'$\\longleftarrow$'" [expression]="'\\longleftarrow'" [description]="'Long left arrow'"/>
+    <app-tool-bar-button [title]="'$\\uparrow$'" [expression]="'\\uparrow'" [description]="'Up arrow'"/>
+    <app-tool-bar-button [title]="'$\\longrightarrow$'" [expression]="'\\longrightarrow'" [description]="'Long right arrow'"/>
+    <app-tool-bar-button [title]="'$\\downarrow$'" [expression]="'\\downarrow'" [description]="'Down arrow'"/>
+  </app-tool-bar-expansion>
+  <app-tool-bar-expansion [title]="'Greek lowercase'">
+    <app-tool-bar-button [title]="'$\\alpha$'" [expression]="'\\alpha'" [description]="'alpha'"/>
+    <app-tool-bar-button [title]="'$\\beta$'" [expression]="'\\beta'" [description]="'beta'"/>
+    <app-tool-bar-button [title]="'$\\gamma$'" [expression]="'\\gamma'" [description]="'gamma'"/>
+    <app-tool-bar-button [title]="'$\\delta$'" [expression]="'\\delta'" [description]="'delta'"/>
+    <app-tool-bar-button [title]="'$\\epsilon$'" [expression]="'\\epsilon'" [description]="'epsilon'"/>
+    <app-tool-bar-button [title]="'$\\varepsilon$'" [expression]="'\\varepsilon'" [description]="'varepsilon'"/>
+    <app-tool-bar-button [title]="'$\\zeta$'" [expression]="'\\zeta'" [description]="'zeta'"/>
+    <app-tool-bar-button [title]="'$\\eta$'" [expression]="'\\eta'" [description]="'eta'"/>
+    <app-tool-bar-button [title]="'$\\theta$'" [expression]="'\\theta'" [description]="'theta'"/>
+    <app-tool-bar-button [title]="'$\\vartheta$'" [expression]="'\\vartheta'" [description]="'vartheta'"/>
+    <app-tool-bar-button [title]="'$\\iota$'" [expression]="'\\iota'" [description]="'iota'"/>
+    <app-tool-bar-button [title]="'$\\kappa$'" [expression]="'\\kappa'" [description]="'kappa'"/>
+    <app-tool-bar-button [title]="'$\\varkappa$'" [expression]="'\\varkappa'" [description]="'varkappa'"/>
+    <app-tool-bar-button [title]="'$\\lambda$'" [expression]="'\\lambda'" [description]="'lambda'"/>
+    <app-tool-bar-button [title]="'$\\mu$'" [expression]="'\\mu'" [description]="'mu'"/>
+    <app-tool-bar-button [title]="'$\\nu$'" [expression]="'\\nu'" [description]="'nu'"/>
+    <app-tool-bar-button [title]="'$\\xi$'" [expression]="'\\xi'" [description]="'xi'"/>
+    <app-tool-bar-button [title]="'$\\pi$'" [expression]="'\\pi'" [description]="'pi'"/>
+    <app-tool-bar-button [title]="'$\\varpi$'" [expression]="'\\varpi'" [description]="'varpi'"/>
+    <app-tool-bar-button [title]="'$\\rho$'" [expression]="'\\rho'" [description]="'rho'"/>
+    <app-tool-bar-button [title]="'$\\varrho$'" [expression]="'\\varrho'" [description]="'varrho'"/>
+    <app-tool-bar-button [title]="'$\\sigma$'" [expression]="'\\sigma'" [description]="'sigma'"/>
+    <app-tool-bar-button [title]="'$\\varsigma$'" [expression]="'\\varsigma'" [description]="'varsigma'"/>
+    <app-tool-bar-button [title]="'$\\tau$'" [expression]="'\\tau'" [description]="'tau'"/>
+    <app-tool-bar-button [title]="'$\\upsilon$'" [expression]="'\\upsilon'" [description]="'upsilon'"/>
+    <app-tool-bar-button [title]="'$\\phi$'" [expression]="'\\phi'" [description]="'phi'"/>
+    <app-tool-bar-button [title]="'$\\varphi$'" [expression]="'\\varphi'" [description]="'varphi'"/>
+    <app-tool-bar-button [title]="'$\\chi$'" [expression]="'\\chi'" [description]="'chi'"/>
+    <app-tool-bar-button [title]="'$\\psi$'" [expression]="'\\psi'" [description]="'psi'"/>
+    <app-tool-bar-button [title]="'$\\omega$'" [expression]="'\\omega'" [description]="'omega'"/>
+  </app-tool-bar-expansion>
+
+  <app-tool-bar-expansion [title]="'Greek uppercase'">
+    <app-tool-bar-button [title]="'$\\Gamma$'" [expression]="'\\Gamma'" [description]="'Gamma'"/>
+    <app-tool-bar-button [title]="'$\\Delta$'" [expression]="'\\Delta'" [description]="'Delta'"/>
+    <app-tool-bar-button [title]="'$\\Theta$'" [expression]="'\\Theta'" [description]="'Theta'"/>
+    <app-tool-bar-button [title]="'$\\Lambda$'" [expression]="'\\Lambda'" [description]="'Lambda'"/>
+    <app-tool-bar-button [title]="'$\\Xi$'" [expression]="'\\Xi'" [description]="'Xi'"/>
+    <app-tool-bar-button [title]="'$\\Pi$'" [expression]="'\\Pi'" [description]="'Pi'"/>
+    <app-tool-bar-button [title]="'$\\Sigma$'" [expression]="'\\Sigma'" [description]="'Sigma'"/>
+    <app-tool-bar-button [title]="'$\\Upsilon$'" [expression]="'\\Upsilon'" [description]="'Upsilon'"/>
+    <app-tool-bar-button [title]="'$\\Phi$'" [expression]="'\\Phi'" [description]="'Phi'"/>
+    <app-tool-bar-button [title]="'$\\Psi$'" [expression]="'\\Psi'" [description]="'Psi'"/>
+    <app-tool-bar-button [title]="'$\\Omega$'" [expression]="'\\Omega'" [description]="'Omega'"/>
+  </app-tool-bar-expansion>
+
+
+</app-tool-bar-expansion>
+<app-tool-bar-expansion [title]="'Numbers, polynomials'">
+
+  <app-tool-bar-expansion [title]="'Numbers'">
+    <app-tool-bar-button [title]="'max(a,b)'" [expression]="'\\max(,)' " [moveBack]="2" [description]="'The largest of the two numbers'"/>
+    <app-tool-bar-button [title]="'min(a,b)'" [expression]="'\\min(,)' " [moveBack]="2" [description]="'The smallest of the two numbers'"/>
+    <app-tool-bar-button [title]="'abs()'" [expression]="'\\abs()'" [moveBack]="1" [description]="'Absolute value of the number'"/>
+    <app-tool-bar-button [title]="'sign()'" [expression]="'\\sign()'" [moveBack]="1" [description]="'Sign of the number'"/>
+    <app-tool-bar-button [title]="'round()'" [expression]="'\\round()'" [moveBack]="1" [description]="'The number rounded to the nearest'"/>
+    <app-tool-bar-button [title]="'floor()'" [expression]="'floor()'" [moveBack]="1" [description]="'Greatest integer that does not exceed this'"/>
+    <app-tool-bar-button [title]="'ceil()'" [expression]="'\\ceil()'" [moveBack]="1" [description]="'Smallest integer which is not less than a given number'"/>
+    <app-tool-bar-button [title]="'isZero()'" [expression]="'\\isZero()'" [moveBack]="1" [description]="'Is equal to zero?'"/>
+    <app-tool-bar-button [title]="'isOne()'" [expression]="'\\isOne()'" [moveBack]="1" [description]="'Is equal to one?'"/>
+    <app-tool-bar-button [title]="'isEven()'" [expression]="'\\isEven()'" [moveBack]="1" [description]="'Is even?'"/>
+    <app-tool-bar-button [title]="'isNegative()'" [expression]="'\\isNegative()'" [moveBack]="1" [description]="'Is strictly negative?'"/>
+    <app-tool-bar-button [title]="'isInfinite()'" [expression]="'\\isInfinite()'" [moveBack]="1" [description]="'Is infinity?'"/>
+    <app-tool-bar-button [title]="'random(bits)'" [expression]="'SPACE=Z[x,y];\\randomNumber();'" [moveBack]="2" [description]="'The random number with b bits'"/>
+  </app-tool-bar-expansion>
+  <app-tool-bar-expansion [title]="'Integers'">
+    <app-tool-bar-button [title]="'div(a,b)'" [expression]="'\\div(,)' " [moveBack]="2" [description]="'The integral part of the quotient a/b'"/>
+    <app-tool-bar-button [title]="'rem(a,b)'" [expression]="'\\rem(,)' " [moveBack]="2" [description]="'The remainder of a divided by b'"/>
+    <app-tool-bar-button [title]="'divRem(a,b)'" [expression]="'\\divRem(,)' " [moveBack]="2" [description]="'The integral part and remainder of a divided by b'"/>
+    <app-tool-bar-button [title]="'mod(a,m)'" [expression]="'\\mod(,)' " [moveBack]="2" [description]="'The remainder of a divided by m in the range: [0, m-1 ]'"/>
+    <app-tool-bar-button [title]="'Mod(a,m)'" [expression]="'\\Mod(,)' " [moveBack]="2" [description]="'The remainder of a divided by m in the range: [-(m-1)div 2, m div 2]'"/>
+    <app-tool-bar-button [title]="'factor(a)'" [expression]="'\\factor()'" [moveBack]="1" [description]="'Factors of this integer number'"/>
+    <app-tool-bar-button [title]="'a!'" [expression]="'a!'" [moveBack]="1" [description]="'Factorial'"/>
+    <app-tool-bar-button [title]="'GCD(a,b)'" [expression]="'\\GCD(,)' " [moveBack]="2" [description]="'GCD'"/>
+    <app-tool-bar-button [title]="'extendedGCD(a,b)'" [expression]="'\\extendedGCD(,)' " [moveBack]="2" [description]="'[GCD,A,B] GCD and Bezout coefficients (A,B): aA+bB=GCD'"/>
+    <app-tool-bar-button [title]="'modInverse(a,m)'" [expression]="'\\modInverse(,)' " [moveBack]="2" [description]="'The inverse of a modulo m: a * b = 1 mod m. (b exists iff GCD (a, m) = 1.)'"/>
+    <app-tool-bar-button [title]="'JacobiSymbol(,)' " [expression]="'\\JacobiSymbol(,);'" [moveBack]="3" [description]="'Jacobi Symbol'"/>
+  </app-tool-bar-expansion>
+</app-tool-bar-expansion>
+
+
