@@ -9,16 +9,16 @@ import {NgClass} from "@angular/common";
     MatExpansionModule,
     NgClass
   ],
-  templateUrl: './tool-bar-element.component.html',
-  styleUrl: './tool-bar-element.component.scss',
+  templateUrl: './tool-bar-expansion.component.html',
+  styleUrl: './tool-bar-expansion.component.scss',
   encapsulation: ViewEncapsulation.None
 })
-export class ToolBarElementComponent {
+export class ToolBarExpansionComponent {
   @Input() title?: string;
   isNested: boolean;
 
   constructor(
-    @Optional() @SkipSelf() parentExpansion: ToolBarElementComponent
+    @Optional() @SkipSelf() parentExpansion: ToolBarExpansionComponent
   ) {
     this.isNested = !!parentExpansion;
   }
