@@ -2,10 +2,6 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 // Material
-.fix-letter-icon{
-  position: absolute;
-  bottom: 12px;
-}
 
 :root {
   --accent-color: #ff4081;
@@ -24,4 +20,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .bg-white{
   background: white;
 }
+.text-accent{
+  color: var(--accent-color);
+}
 
+.fix-letter-icon{
+  position: absolute;
+  bottom: 12px;
+}
+.fix-disabled-button-color{
+  color: var(--text-color) !important;
+}

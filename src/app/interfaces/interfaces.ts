@@ -4,6 +4,8 @@ export interface CalculatePayload {
 export interface CalculateResult {
   result: string;
   latex: string;
+  status: string;
+  error: string;
 }
 export interface CalculatorInput {
   expressionData: ExpressionData;

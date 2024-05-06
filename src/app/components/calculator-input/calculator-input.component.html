@@ -4,7 +4,7 @@
       <button mat-mini-fab color="accent" (click)="calculate()">
         <mat-icon fontIcon="play_arrow"></mat-icon>
       </button>
-      <button mat-mini-fab color="accent" (click)="mathJaxEnabled = !mathJaxEnabled">
+      <button mat-mini-fab color="accent" class="fix-disabled-button-color" [disabled]="!mathJaxInput" (click)="mathJaxEnabled = !mathJaxEnabled">
         <mat-icon fontIcon="shuffle"></mat-icon>
       </button>
       <button mat-mini-fab color="accent" (click)="addInput.emit()">
@@ -33,7 +33,12 @@
       ></textarea>
     }
     @if (calculationResult && !mathJaxEnabled) {
-      <div [innerHTML]="calculationResult" class="bg-white"></div>
+      @if(lastCalculationResult){
+        <div [innerHTML]="calculationResult" class="bg-white calculation-result"></div>
+      } @else {
+        <div class="text-accent bg-white">Wrong input:</div>
+        <div [innerHTML]="calculationResult" class="bg-white calculation-result"></div>
+      }
     }
   </mat-card-content>
 

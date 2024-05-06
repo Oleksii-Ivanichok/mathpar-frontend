@@ -49,7 +49,7 @@ export class CalculatorInputComponent implements OnChanges {
   calculationResult: string = '';
   mathJaxEnabled: boolean = false;
   mathJaxInput: string = '';
-
+  lastCalculationResult: boolean = false;
   constructor(private commandsService: CommandsService) {
   }
 
@@ -75,9 +75,18 @@ export class CalculatorInputComponent implements OnChanges {
 
   calculate() {
     this.commandsService.calculate({task: this.formControl.value}).subscribe((response: CalculateResult) => {
-      this.calculationResult = response.result.replace(/\n/g, '<br>');
-      this.mathJaxInput = response.latex.replace(/\n\n/g, '<br>');
-      this.mathJaxEnabled = true;
+      console.log(response)
+      if (response.status === "OK") {
+        this.calculationResult = response.result.replace(/\n/g, '<br>');
+        this.mathJaxInput = response.latex.replace(/\n\n/g, '<br>');
+        this.mathJaxEnabled = true;
+        this.lastCalculationResult = true;
+      } else {
+        this.calculationResult = response.error.replace(/\n/g, '<br>');
+        this.mathJaxInput = ''
+        this.lastCalculationResult = false;
+      }
+
     });
   }
 
