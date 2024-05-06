@@ -178,6 +178,7 @@
     <app-tool-bar-button [title]="'isInfinite()'" [expression]="'\\isInfinite()'" [moveBack]="1" [description]="'Is infinity?'"/>
     <app-tool-bar-button [title]="'random(bits)'" [expression]="'SPACE=Z[x,y];\\randomNumber();'" [moveBack]="2" [description]="'The random number with b bits'"/>
   </app-tool-bar-expansion>
+
   <app-tool-bar-expansion [title]="'Integers'">
     <app-tool-bar-button [title]="'div(a,b)'" [expression]="'\\div(,)' " [moveBack]="2" [description]="'The integral part of the quotient a/b'"/>
     <app-tool-bar-button [title]="'rem(a,b)'" [expression]="'\\rem(,)' " [moveBack]="2" [description]="'The remainder of a divided by b'"/>
@@ -191,6 +192,225 @@
     <app-tool-bar-button [title]="'modInverse(a,m)'" [expression]="'\\modInverse(,)' " [moveBack]="2" [description]="'The inverse of a modulo m: a * b = 1 mod m. (b exists iff GCD (a, m) = 1.)'"/>
     <app-tool-bar-button [title]="'JacobiSymbol(,)' " [expression]="'\\JacobiSymbol(,);'" [moveBack]="3" [description]="'Jacobi Symbol'"/>
   </app-tool-bar-expansion>
+
+  <app-tool-bar-expansion [title]="'Fractions and rational functions'">
+    <app-tool-bar-button [title]="'num(fr)'" [expression]="'\\num()'" [moveBack]="1" [description]="'numerator'"/>
+    <app-tool-bar-button [title]="'denom(fr)'" [expression]="'\\denom()'" [moveBack]="1" [description]="'denominator'"/>
+    <app-tool-bar-button [title]="'cancel(fr)'" [expression]="'\\cancel()'" [moveBack]="1" [description]="'Cancel this fraction'"/>
+    <app-tool-bar-button [title]="'quotientAndRemainder(fr)'" [expression]="'\\quotientAndRemainder()'" [moveBack]="1" [description]="'Quotient and remainder when divided numerator by the denominator'"/>
+    <app-tool-bar-button [title]="'quotient(fr)'" [expression]="'\\quotient()'" [moveBack]="1" [description]="'Quotient when divided numerator by the denominator'"/>
+    <app-tool-bar-button [title]="'remainder(fr)'" [expression]="'\\remainder()'" [moveBack]="1" [description]="'Remainder when divided numerator by the denominator'"/>
+    <app-tool-bar-button [title]="'quotientAndRemainder(fr,x)'" [expression]="'\\quotientAndRemainder(,)'" [moveBack]="2" [description]="'Quotient and remainder when divided numerator by the denominator'"/>
+    <app-tool-bar-button [title]="'quotient(fr,x)'" [expression]="'\\quotient(,)'" [moveBack]="2" [description]="'Quotient when divided numerator by the denominator'"/>
+    <app-tool-bar-button [title]="'remainder(fr,x)'" [expression]="'\\remainder(,)'" [moveBack]="2" [description]="'Remainder when divided numerator by the denominator'"/>
+    <app-tool-bar-button [title]="'properForm(fr)'" [expression]="'\\properForm();'" [moveBack]="2" [description]="'get integer part plus proper fraction'"/>
+  </app-tool-bar-expansion>
+
+  <app-tool-bar-expansion [title]="'Polynomials'">
+    <app-tool-bar-button [title]="'random(d_1,..,d_n,density,bits)'" [expression]="'SPACE=Z[x,y];\\randomPolynom(2, 2, 100, 5);'" [description]="'random polynomial with: d_1=highes degree_1,..,d_n=highes degree_n ,density=density in percents, bits= number of bits in coefficients'"/>
+    <app-tool-bar-button [title]="'GCD(f,g)'" [expression]="'\\GCD(,);'" [moveBack]="3" [description]="'greatest common divisor'"/>
+    <app-tool-bar-button [title]="'LCM(f,g)'" [expression]="'\\LCM(,);'" [moveBack]="3" [description]="'least common multiple'"/>
+    <app-tool-bar-button [title]="'resultant(f,g)'" [expression]="'\\resultant(,);'" [moveBack]="3" [description]="'resultant'"/>
+    <app-tool-bar-button [title]="'discriminant(f)'" [expression]="'SPACE=Z[q,r,s,x]; p=x^4+q*x^2+r*x+s; \\discriminant(p);'" [description]="'discriminant'"/>
+    <app-tool-bar-button [title]="'leadingCoeff()'" [expression]="'\\leadingCoeff();'" [moveBack]="2" [description]="'leading coefficient, it is a number or a polynomial with a smaller number of variables'"/>
+    <app-tool-bar-button [title]="'value(f(x),[a])'" [expression]="'\\value(,[]);'" [moveBack]="5" [description]="'Calculation of the value of the one variable polynomial f(x) at the point x=a'"/>
+    <app-tool-bar-button [title]="'value(f(x,y),[a,b])'" [expression]="'\\value(,[,]);'" [moveBack]="6" [description]="'Calculation of the value of a polynomial of several variables f(x,y) at the point (x,y)=(a,b)'"/>
+    <app-tool-bar-button [title]="'rootsOfPolynomial()'" [expression]="'SPACE = Q[x];b = \\solve(x^2 + 3x - 6 = 0);'" [moveBack]="1" [description]="'Roots of polynomial'"/>
+    <app-tool-bar-button [title]="'realRootsOfPolynomial()'" [expression]="'SPACE = R64[x];b = \\solve(x^3+8);'" [moveBack]="1" [description]="'Real roots of polynomial'"/>
+    <app-tool-bar-button [title]="'complexRootsOfPolynomial()'" [expression]="'SPACE = C64[x];b = \\solve(x^3+8);'" [moveBack]="1" [description]="'Complex roots of polynomial'"/>
+    <app-tool-bar-button [title]="'solveNAE(f,g,...,h)'" [expression]="'SPACE = R64[x, y]; \\solveNAE(x^2 + y^2 - 4, y - x^2);'" [moveBack]="1" [description]="'get solution f nonlinear algebraic equations: f=0,g=0,...,h=0'"/>
+    <app-tool-bar-button [title]="'degrees(f)'" [expression]="'\\degrees();'" [moveBack]="2" [description]="'highest degree in each variable (in order of decreasing numbers of variables)'"/>
+    <app-tool-bar-button [title]="'degree(f)'" [expression]="'\\degree();'" [moveBack]="2" [description]="'polynomial degree (for leading variable)'"/>
+    <app-tool-bar-button [title]="'groebner(f,..,g)'" [expression]="'SPACE = Z[x, y, z]; \\groebner(x^4y^3 + 2xy^2 + 3x + 1, x^3y^2 + x^2, x^4y + z^2 + xy^4 + 3);'" [description]="'Groebner basis of polynomial ideal, generated by f,..,g'"/>
+    <app-tool-bar-button [title]="'reduceByGB(f,[p,..,q])'" [expression]="'SPACE = Q[x, y, z];\\reduceByGB(5y^2 + 3x^2 + z^2, [y + x, 5z^2 + 5z]);'" [description]="'reduces polynomial f with given set of polynomial p,..,q.'"/>
+    <app-tool-bar-button [title]="'PRS(a,b)'" [expression]="'\\PRS(,)' " [moveBack]="2" [description]="'polynomial remainder sequence of two polynomials (unsigned)'"/>
+    <app-tool-bar-button [title]="'GCDNumCf(p)'" [expression]="'\\GCDNumPolCoeffs()'" [moveBack]="1" [description]="'GCD of the polynomial numerical coefficients'"/>
+    <app-tool-bar-button [title]="'GCDHCf(p,z)'" [expression]="'\\GCDHPolCoeffs()'" [moveBack]="1" [description]="'GCD of the polynomial coefficients of the highest variable, i.e. a polynomial of all other variables'"/>
+    <app-tool-bar-button [title]="'quotientAndRemainder(a,b,x)'" [expression]="'\\quotientAndRemainder(,,);'" [moveBack]="3" [description]="'Quotient and remainder when divided a by b, with main variable x'"/>
+    <app-tool-bar-button [title]="'quotient(a,b,x)'" [expression]="'\\quotient(,,);'" [moveBack]="3" [description]="'Quotient when divided a by b, with main variable x'"/>
+    <app-tool-bar-button [title]="'remainder(a,b,x)'" [expression]="'\\remainder(,,);'" [moveBack]="3" [description]="'Remainder when divided a by b, with main variable x'"/>
+    <app-tool-bar-button [title]="'extendedGCD(a,b)'" [expression]="'SPACE=Q[x,y]; a=3xy+1; b=4y+x;V=\\extendedGCD(a,b); v=\\elementOf(V); c= a v_{2}+b v_{3}; \\print(c, v_{1},v_{2}, v_{3});'" [moveBack]="2" [description]="'[GCD,A,B] GCD and Bezout coefficients (A,B): aA+bB=GCD for polynomials over the field. The highest variable is the main. The polynomial coefficients belong to the field of fractions.'"/>
+    <app-tool-bar-button [title]="'toVectorDence(p)'" [expression]="'\\toVectorDence();'" [moveBack]="2" [description]="'vector with polynomial coefficients of highest variable. Its length is equal highest degree plus one.'"/>
+    <app-tool-bar-button [title]="'toVectorSparce(p)'" [expression]="'\\toVectorSparce();'" [moveBack]="2" [description]="'vector with 2 n components. First n components are the nonzero coefficients. Last n components are their degrees.'"/>
+    <app-tool-bar-button [title]="'vectorToPolynom([])'" [expression]="'\\vectorToPolynom();'" [moveBack]="2" [description]="'is a polynomial of one variable which coefficients are the components of this vector.'"/>
+  </app-tool-bar-expansion>
+
+</app-tool-bar-expansion>
+
+<app-tool-bar-expansion [title]="'Matrices'">
+  <app-tool-bar-expansion [title]="'Matrices and linear systems'">
+    <app-tool-bar-button [title]="'solveLAE'" [expression]="'M=[[1,2],[3,1]]; b=[1,1]; \\solve(M,b);'" [description]="'Solve linear systems Ax=b. Input: (A,b) or (extA), extA is extended matrix'"/>
+    <app-tool-bar-button [title]="'cholesky'" [expression]="'M=[[3,2],[2,4]]; \\cholesky(M);'" [description]="'factorization of a symmetric positive definite matrix M. Returns [L, L^{- 1}], where L*L^T = M.'"/>
+    <app-tool-bar-button [title]="'transpose'" [expression]="'^{T};'" [description]="'Transpose'"/>
+    <app-tool-bar-button [title]="'inverse'" [expression]="'^{-1};'" [description]="'Inverse'"/>
+    <app-tool-bar-button [title]="'adjoint'" [expression]="'\\adjoint();'" [description]="'Adjoint'"/>
+    <app-tool-bar-button [title]="'det'" [expression]="'\\det();'" [description]="'Determinant'"/>
+    <app-tool-bar-button [title]="'detL'" [expression]="'\\detL(n,[p(x,y),x,q(x,y),y]);'" [description]="'Lagutinski determinant of order n with respect to the differentiation  p(x,y)dx+q(x,y)dy'"/>
+    <app-tool-bar-button [title]="'conjugate'" [expression]="'^{\\ast};'" [description]="'Conjugate'"/>
+    <app-tool-bar-button [title]="'SVD'" [expression]="'\\SVD();'" [description]="'Singular Value Decomposition'"/>
+    <app-tool-bar-button [title]="'QR'" [expression]="'\\QR();'" [description]="'orthogonal QR decomposition of matrix'"/>
+    <app-tool-bar-button [title]="'genInverse'" [expression]="'^{+};'" [description]="'Generalized inverse Murr-Penrose matrix'"/>
+    <app-tool-bar-button [title]="'pseudoInverse'" [expression]="'\\pseudoInverse();'" [description]="'pseudo inverse P: P=PAP, A=APA. It is obtained by P(A)=WSM/det^2 .'"/>
+    <app-tool-bar-button [title]="'toEchelonForm'" [expression]="'\\toEchelonForm();'" [description]="'Echelon form'"/>
+    <app-tool-bar-button [title]="'rank'" [expression]="'\\rank();'" [description]="'rank of matrix'"/>
+    <app-tool-bar-button [title]="'kernel'" [expression]="'\\kernel();'" [description]="'Kernel'"/>
+    <app-tool-bar-button [title]="'maxAbs'" [expression]="'\\maxAbs();'" [description]="'maximum of the absolute value of elements'"/>
+    <app-tool-bar-button [title]="'normF'" [expression]="'\\normF();'" [description]="'Frobenius norm'"/>
+    <app-tool-bar-button [title]="'charPolynom'" [expression]="'\\charPolynom();'" [description]="'Characteristic polynomial'"/>
+    <app-tool-bar-button [title]="'LSUWMdet'" [expression]="'SPACE=Q[]; A=[[2,3],[4,6]]; F=\\LSUWMdet(A); f=\\elementOf(F);L=f_{1}; S=f_{2};U=f_{3}; W=f_{4};M=f_{5}; D=f_{6}; d=\\elementOf(D); det=d_{1,1}; A_f=L*S*U; P=1/det^2*(W*S*M); A_p=A*P*A; \\print(L,S,U,W,M,det,P,A_f,A_p );'" [description]="'[L,S,U,W,M,det], A = LSU, P(A)=WSM/det^2 is pseudoInverse of A, det is greatest angular minor'"/>
+    <app-tool-bar-button [title]="'LSU'" [expression]="'SPACE=Q[]; A=[[2,3],[4,6]]; F=\\LSU(A); f=\\elementOf(F); L=f_{1}; S=f_{2}; U=f_{3}; A_1=L*S*U; \\print(L,S,U,A_1);'" [description]="'LSU-decomposition: A=L*S*U'"/>
+    <app-tool-bar-button [title]="'BruhatDecomposition'" [expression]="'\\BruhatDecomposition();'" [description]="'Bruhat decomposition'"/>
+    <app-tool-bar-button [title]="'random(n,m,density,bits)'" [expression]="'SPACE=Z[x,y];\\randomMatrix(2, 2, 100, 5);'" [description]="'random matrix with numbers: n=number of rows, m=number of columns, density=density in percents, bits= число бит в коеффициентах'"/>
+    <app-tool-bar-button [title]="'random(n,m,dens,d1,.,dk,dens,bits)'" [expression]="'SPACE=Z[x,y,z];\\randomMatrix(2, 2, 100, 1,1,1,50, 5);'" [description]="'random matrix with polynomials: n=number of rows, m=number of columns, density=density in percents, (d1,..,dn, den,bits) - the type of random polynomials'"/>
+    <app-tool-bar-button [title]="'submatrix(M,r1,Nr,c1,Nc)'" [expression]="'\\submatrix(A,1,1,1,1);'" [moveBack]="10" [description]="'submatrix of matrix M with Nr rows (r1-first row) and Nc columns ( c1-first column)'"/>
+    <app-tool-bar-button [title]="'sylvester(p,q,type)'" [expression]="'\\sylvester(, ,);'" [moveBack]="4" [description]="'Sylvester matrix formed by the coefficients of two polynomials'"/>
+  </app-tool-bar-expansion>
+  <app-tool-bar-expansion [title]="'Matrices over Z'">
+    <app-tool-bar-button [title]="'LDUm'" [expression]="'SPACE=Z[];  A=[[5,2],[3,2]]; \\LDUm(A);'" [moveBack]="2" [description]="'triangular factorization of this matrix: A=L*D*U'"/>
+    <app-tool-bar-button [title]="'PlduQwk'" [expression]="'SPACE=Z[];\\PlduQwk();'" [moveBack]="2" [description]="'permutation matrices P,Q;  factorization of A=P*l*d*u*Q and A^{-1}=Q^{T}*w*d*k*P^{T}'"/>
+    <app-tool-bar-button [title]="'LDUWK'" [expression]="'SPACE=Z[];\\LDUWK();'" [moveBack]="2" [description]="'triangular factorization of A=L*D*U and A^{-1}=W*D*K'"/>
+    <app-tool-bar-button [title]="'WDK'" [expression]="'SPACE=Z[]; \\WDK();'" [moveBack]="2" [description]="'triangular factorization of inverse matrix A^{-1}=W*D*K'"/>
+  </app-tool-bar-expansion>
+
+  <app-tool-bar-expansion [title]="'Linear programming (Q,R64,R)'">
+    <app-tool-bar-button [title]="'SimplexMax'" [expression]="'SPACE=Q[];A=[[1,3],[2,1]];b=[3,2];c=[8,6];\\SimplexMax(A,b,c);'" [moveBack]="0" [description]="'We find vector x: Ax<=b, c*x --> max'"/>
+    <app-tool-bar-button [title]="'SimplexMin'" [expression]="'SPACE=Q[];A=[[3,4],[2,1]];b=[3,1];c=[-2,-1];\\SimplexMin(A,b,c);'" [moveBack]="2" [description]="'We find vector x: Ax<=b, c*x --> min'"/>
+  </app-tool-bar-expansion>
+
+</app-tool-bar-expansion>
+
+<app-tool-bar-expansion [title]="'Functions'">
+  <app-tool-bar-expansion [title]="'Elementary functions'">
+    <app-tool-bar-button [title]="'ln'" [expression]="'\\ln()'" [moveBack]="1" [description]="'Natural logarithm'"/>
+    <app-tool-bar-button [title]="'lg'" [expression]="'\\lg()'" [moveBack]="1" [description]="'Decimal logarithm'"/>
+    <app-tool-bar-button [title]="'sin'" [expression]="'\\sin()'" [moveBack]="1" [description]="'Sine'"/>
+    <app-tool-bar-button [title]="'cos'" [expression]="'\\cos()'" [moveBack]="1" [description]="'Cosine'"/>
+    <app-tool-bar-button [title]="'tg'" [expression]="'\\tg()'" [moveBack]="1" [description]="'Tangent'"/>
+    <app-tool-bar-button [title]="'ctg'" [expression]="'\\ctg()'" [moveBack]="1" [description]="'Cotangent'"/>
+    <app-tool-bar-button [title]="'arcsin'" [expression]="'\\arcsin()'" [moveBack]="1" [description]="'Arcsine'"/>
+    <app-tool-bar-button [title]="'arccos'" [expression]="'\\arccos()'" [moveBack]="1" [description]="'Arccosin'"/>
+    <app-tool-bar-button [title]="'arctg'" [expression]="'\\arctg()'" [moveBack]="1" [description]="'Arctangent'"/>
+    <app-tool-bar-button [title]="'arcctg'" [expression]="'\\arcctg()'" [moveBack]="1" [description]="'Arccotangent'"/>
+    <app-tool-bar-button [title]="'sh'" [expression]="'\\sh()'" [moveBack]="1" [description]="'Hyperbolic sine'"/>
+    <app-tool-bar-button [title]="'ch'" [expression]="'\\ch()'" [moveBack]="1" [description]="'Hyperbolic cosine'"/>
+    <app-tool-bar-button [title]="'th'" [expression]="'\\th()'" [moveBack]="1" [description]="'Hyperbolic tangent'"/>
+    <app-tool-bar-button [title]="'cth'" [expression]="'\\cth()'" [moveBack]="1" [description]="'Hyperbolic cotangent'"/>
+    <app-tool-bar-button [title]="'arcsh'" [expression]="'\\arcsh()'" [moveBack]="1" [description]="'Hyperbolic arcsine'"/>
+    <app-tool-bar-button [title]="'arcch'" [expression]="'\\arcch()'" [moveBack]="1" [description]="'Hyperbolic arccosine'"/>
+    <app-tool-bar-button [title]="'arcth'" [expression]="'\\arcth()'" [moveBack]="1" [description]="'Hyperbolic arctangent'"/>
+    <app-tool-bar-button [title]="'arccth'" [expression]="'\\arccth()'" [moveBack]="1" [description]="'Hyperbolic arccotangent'"/>
+    <app-tool-bar-button [title]="'exp'" [expression]="'\\exp()'" [moveBack]="1" [description]="'Exponential function'"/>
+    <app-tool-bar-button [title]="'$\\sqrt{}$'" [expression]="'\\sqrt()'" [moveBack]="1" [description]="'Square root'"/>
+  </app-tool-bar-expansion>
+
+  <app-tool-bar-expansion [title]="'Other functions'">
+    <app-tool-bar-button [title]="'$\\log_a(x)$'" [expression]="'\\log(a, x);'" [description]="'Logarithm with given base'"/>
+    <app-tool-bar-button [title]="'$\\sqrt[n]{a}$'" [expression]="'\\rootOf(a, n);'" [description]="'nth root'"/>
+    <app-tool-bar-button [title]="'$\\int \\! f \\ \\mathrm{d}x$'" [expression]="'\\int(f) d x;'" [description]="'Integral'"/>
+    <app-tool-bar-button [title]="'$D(f)$'" [expression]="'\\D(f);'" [description]="'Derivative'"/>
+    <app-tool-bar-button [title]="'$D_{x}(f)$'" [expression]="'\\D(f, x);'" [description]="'Derivative with respect to x'"/>
+    <app-tool-bar-button [title]="'$D_{x}^{(n)}(f)$'" [expression]="'\\D(f, x^n);'" [description]="'Derivative of higher order n'"/>
+    <app-tool-bar-button [title]="'$\\lim_{x \\to a}(f)$'" [expression]="'\\lim_{x \\to a}(f);'" [description]="'Limit'"/>
+    <app-tool-bar-button [title]="'$\\binom n k$'" [expression]="'\\binom(n, k);'" [description]="'Binomial coefficient'"/>
+    <app-tool-bar-button [title]="'abs'" [expression]="'\\abs()'" [moveBack]="1" [description]="'Absolute value'"/>
+    <app-tool-bar-button [title]="'sign'" [expression]="'\\sign()'" [moveBack]="1" [description]="'Sign of number and polynomial (the first coefficient)'"/>
+    <app-tool-bar-button [title]="'a!'" [expression]="'a!'" [moveBack]="1" [description]="'Factorial'"/>
+    <app-tool-bar-button [title]="'$\\Gamma(x)$'" [expression]="'\\Gamma()'" [moveBack]="1" [description]="'Gamma function'"/>
+    <app-tool-bar-button [title]="'Beta(x,y)'" [expression]="'\\Beta(x, y);'" [description]="'Beta function'"/>
+    <app-tool-bar-button [title]="'AGM(x,y)'" [expression]="'\\AGM(,);'" [moveBack]="3" [description]="'arithmetic-geometric mean'"/>
+    <app-tool-bar-button [title]="'MAGM(x,y)'" [expression]="'\\MAGM(,);'" [moveBack]="3" [description]="'modified arithmetic-geometric mean'"/>
+    <app-tool-bar-button [title]="'GHM(x,y)'" [expression]="'\\GHM(,);'" [moveBack]="3" [description]="'geometric-harmonic mean'"/>
+    <app-tool-bar-button [title]="'BessJ(n,x)'" [expression]="'\\BesselJ(n,x);'" [description]="'BesselJ(n,x)'"/>
+    <app-tool-bar-button [title]="'BessY(n,x)'" [expression]="'\\BesselY(n,x);'" [description]="'BesselY(n,x)'"/>
+    <app-tool-bar-button [title]="'LegP(n,x)'" [expression]="'\\LegendreP(n,x);'" [description]="'Legendre polynomials: LegendreP(n,x)=1/(2n) sum_{k=0}^{n}binom(n,k)^2(x-1)^{n-k}(x+1)^k'"/>
+    <app-tool-bar-button [title]="'LegP(n,m,x)'" [expression]="'\\LegendreP(n,m,x);'" [description]="'Associated Legendre polynomials: LegendreP(n,m,x)=P_n^m(x)=(-1)^m(1-x^2)^{m/2}(d/d x^m)P(n,x)'"/>
+    <app-tool-bar-button [title]="'sphHarm'" [expression]="'\\sphericalHarmonic(n,m,\\theta,\\phi);'" [description]="'Spherical Harmonic: sphericalHarmonic(n,m,theta,phi)=[P(n,m,cos(theta))*cos(m*phi), P(n,m,cos(theta))*sin(m*phi)]. It is solution of Laplace`s equation in spherical coordinates.'"/>
+    <app-tool-bar-button [title]="'sphHarmR'" [expression]="'\\sphericalHarmonicR(n,m,r,\\theta,\\phi);'" [description]="'sphericalHarmonicR(n,m,r,theta,phi)=r^n sphericalHarmonic(n,m,theta,phi)'"/>
+    <app-tool-bar-button [title]="'sphHarmCart'" [expression]="'\\sphericalHarmonicCart(n,m,x,y,z);'" [description]="'Spherical Harmonic in Cartesian coordinates: sphericalHarmonicCart(n,m,x,y,z)=sphericalHarmonic(n,m,theta,phi) for r=sqrt(x^2+y^2+z^2), z=r*cos(theta), x=r*sin(theta)cos(phi), y=r*sin(theta)sin(phi)'"/>
+    <app-tool-bar-button [title]="'sphHarmRCart'" [expression]="'\\sphericalHarmonicRCart(n,m,x,y,z);'" [description]="'sphericalHarmonicRCart(n,m,x,y,z)=r^n sphericalHarmonicCart(n,m,x,y,z), for r=sqrt(x^2+y^2+z^2)'"/>
+  </app-tool-bar-expansion>
+
+  <app-tool-bar-expansion [title]="'Equations, inequalities and systems of equations and inequalities'">
+    <app-tool-bar-button [title]="'solveEquation'" [expression]="'SPACE=Q[x]; \\solve(x^2+5x+p=0);'" [moveBack]="2" [description]="'solving an algebraic equation'"/>
+    <app-tool-bar-button [title]="'solveLinSyst'" [expression]="'SPACE=Q[x,y];\\solve([x+y=6,3x-2y=5]);'" [moveBack]="2" [description]="'system of linear algebraic equations'"/>
+    <app-tool-bar-button [title]="'solveLSystWithOtherVars'" [expression]="'\\solve([a+b+c=6,3c*a-2b-7d=5],[a,b]);'" [moveBack]="9" [description]="'system of linear algebraic equations with other variables'"/>
+    <app-tool-bar-button [title]="'solveLSystInMatrixForm'" [expression]="'A=[[1,2],[4,5]]; b=[3,4];\\solve(A,b);'" [moveBack]="29" [description]="'system of linear algebraic equations in matrix form'"/>
+    <app-tool-bar-button [title]="'solveNAE(f,g,...,h)'" [expression]="'SPACE=R64[x,y];\\solveNAE(x^2+y^2-4,y-x^2);'" [moveBack]="1" [description]="'System of nonlinear algebraic equations: (f,g,...,h)'"/>
+    <app-tool-bar-button [title]="'solveTrigonometricEquation'" [expression]="'SPACE = R64[x];b = \\solveTrig(\\sin(x)=0.5);'" [moveBack]="0" [description]="'Trigonometric equation'"/>
+    <app-tool-bar-button [title]="'solveInequality'" [expression]="'\\solve((x+1)^2(x-3)(x+5) > 0);'" [moveBack]="0" [description]="'Nonlinear algebraic inequality'"/>
+    <app-tool-bar-button [title]="'solveSystemOfInequalities'" [expression]="'\\solve(x^2+4x-5 > 0, x^2-2x-8 < 0);'" [moveBack]="0" [description]="'Systems of inequalities'"/>
+    <app-tool-bar-button [title]="'value'" [expression]="'SPACE=R64[x,y]; f=x^2-7y; \\value(f,[1,2]);'" [moveBack]="0" [description]="'value of function in the point'"/>
+  </app-tool-bar-expansion>
+
+  <app-tool-bar-expansion [title]="'Differential equations and systems'">
+    <app-tool-bar-button [title]="'solveLinDE'" [expression]="'SPACE=R64[t];\\newline  g=\\systLDE(\\d(y, t, 3)+3\\d(y, t, 2)+3\\d(y, t)+y=1);\\newline f=\\initCond(\\d(y, t, 0, 0)=0, \\d(y, t, 0, 1)=0,\\d(y, t, 0, 2)=0);\\newline h=\\solveLDE(g, f);'" [moveBack]="0" [description]="'Linear differential equations'"/>
+    <app-tool-bar-button [title]="'solveSystemOfLinDEs'" [expression]="'SPACE=R64[t];\\newline g=\\systLDE(\\d(x, t)-y+z=0, -x-y+\\d(y, t)=0, -x-z+\\d(z, t)=0);\\newline f= \\initCond(\\d(x, t, 0, 0)=1, \\d(y, t, 0, 0)=2, \\d(z, t, 0, 0)=3);\\newline h= \\solveLDE(g, f);'" [moveBack]="0" [description]="'Systems of linear differential equations'"/>
+  </app-tool-bar-expansion>
+
+  <app-tool-bar-expansion [title]="'Probability theory'">
+    <app-tool-bar-button [title]="'discreteRandomQuantity'" [expression]="'SPACE=R64[x];DRQ=[[10,20,33,22],[0.1,0.5,0.2, 0.2]];'" [moveBack]="0" [description]="'Assignment of a discrete random quantity'"/>
+    <app-tool-bar-button [title]="'mathExpectation'" [expression]="'\\mathExpectation(DRQ);'" [moveBack]="0" [description]="'Expectation of a discrete random variable'"/>
+    <app-tool-bar-button [title]="'dispersion'" [expression]="'\\dispersion(DRQ);'" [moveBack]="0" [description]="'Variance of a discrete random variable'"/>
+    <app-tool-bar-button [title]="'meanSquareDeviation'" [expression]="'\\meanSquareDeviation(DRQ);'" [moveBack]="0" [description]="'Standard deviation of a discrete random variable'"/>
+    <app-tool-bar-button [title]="'addQU'" [expression]="'\\addQU(DRQ1,DRQM2);'" [moveBack]="0" [description]="'Sum of the two discrete random variables DRQ1 and DRQ2'"/>
+    <app-tool-bar-button [title]="'multiplyQU'" [expression]="'\\multiplyQU(DRQ1, DRQ2);'" [moveBack]="0" [description]="'Product of two discrete random variables DRQ1 and DRQ2'"/>
+    <app-tool-bar-button [title]="'covariance'" [expression]="'\\covariance(DRQ1, DRQ2);'" [moveBack]="0" [description]="'Covariance coefficient of two discrete random variables DRQ1 and DRQ2'"/>
+    <app-tool-bar-button [title]="'correlation'" [expression]="'\\correlation(DRQ1, DRQ2);'" [moveBack]="0" [description]="'Correlation coefficient of two discrete random variables DRQ1 and DRQ2'"/>
+    <app-tool-bar-button [title]="'plotPolygonDistribution'" [expression]="'\\plotPolygonDistribution(DRQ);'" [moveBack]="0" [description]="'Building polygon distributions of discrete random variable DRQ'"/>
+    <app-tool-bar-button [title]="'plotDistributionFunction'" [expression]="'\\plotDistributionFunction(DRQ);'" [moveBack]="0" [description]="'Constructing the distribution function of discrete random variable DRQ'"/>
+    <app-tool-bar-button [title]="'simplifyQU'" [expression]="'\\simplifyQU(DRQ);'" [moveBack]="0" [description]="'Simplify a discrete random variable'"/>
+  </app-tool-bar-expansion>
+
+  <app-tool-bar-expansion [title]="'Statistics'">
+    <app-tool-bar-button [title]="'sample'" [expression]="'SPACE=R64[x];S=[10,20,33,22];'" [moveBack]="0" [description]="'Assignment of a sample'"/>
+    <app-tool-bar-button [title]="'sampleMean'" [expression]="'\\sampleMean(S);'" [moveBack]="0" [description]="'Sample mean of a sample'"/>
+    <app-tool-bar-button [title]="'sampleDispersion'" [expression]="'\\sampleDispersion(S);'" [moveBack]="0" [description]="'Sample variance of a sample'"/>
+    <app-tool-bar-button [title]="'covarianceCoefficient'" [expression]="'\\covarianceCoefficient(S1, S2);'" [moveBack]="0" [description]="'Coefficient of covariance for two samps S1 and S2'"/>
+    <app-tool-bar-button [title]="'correlationCoefficient'" [expression]="'\\correlationCoefficient(S1, S2);'" [moveBack]="0" [description]="'Correlation coefficient for  two samps S1 and S2'"/>
+  </app-tool-bar-expansion>
+
+<!--  <app-tool-bar-expansion [title]="'Graph problems'">-->
+<!--    <app-tool-bar-button [title]="'plotGraphMatrix'" [expression]="'M=[[0,1,1,0,1,0],[1,0,0,1,1,0],[1,0,0,0,1,1],[0,1,0,0,0,0],[1,1,1,0,0,1],[0,0,1,0,1,0]]; plotGraph(M);'" [moveBack]="0" [description]="'Сonstruction graph with adjacency matrix M'"/>-->
+<!--    <app-tool-bar-button [title]="'plotGraphAdMatrixCoord'" [expression]="'M=[[0,1,1,0,1,0],[1,0,0,1,1,0],[1,0,0,0,1,1],[0,1,0,0,0,0],[1,1,1,0,0,1],[0,0,1,0,1,0]];\\newline P=[[3,2,4,1,3,5],[3,2,2,1,1,1]];\\newline \\plotGraph(M,P);'" [moveBack]="0" [description]="'Сonstruction graph with two arguments (M,P) Where M  is adjacency matrix, P  is matrix of vertex coordinates'"/>-->
+<!--    <app-tool-bar-button [title]="'plotCompleteGraph'" [expression]="'\\plotGraph(5);'" [moveBack]="0" [description]="'Сonstruction complete graph with the number N of vertices'"/>-->
+<!--    <app-tool-bar-button [title]="'searchLeastDistances'" [expression]="'\\searchLeastDistances()'" [moveBack]="1" [description]="'Search least distances'"/>-->
+<!--    <app-tool-bar-button [title]="'findTheShortestPath'" [expression]="'\\findTheShortestPath()'" [moveBack]="1" [description]="'Find the shortest path between vertices i and j: (M,i,j), M is adjacency matrix'"/>-->
+<!--  </app-tool-bar-expansion>-->
+
+  <app-tool-bar-expansion [title]="'Idempotent (tropical) algebras'">
+    <app-tool-bar-button [title]="'R64min+'" [expression]="'SPACE = R64MinPlus[];'" [moveBack]="2" [description]="'Tropical semifield R64MinPlus'"/>
+    <app-tool-bar-button [title]="'Rmin+'" [expression]="'SPACE = RMinPlus[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'R64min$\\times$'" [expression]="'SPACE = R64MinMult[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'Rmin$\\times$'" [expression]="'SPACE = RMinMult[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'R64max+'" [expression]="'SPACE = R64MaxPlus[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'Rmax+'" [expression]="'SPACE = RMaxPlus[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'R64max$\\times$'" [expression]="'SPACE = R64MaxMult[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'Rmax$\\times$'" [expression]="'SPACE = RMaxMult[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'R64min max'" [expression]="'SPACE = R64MinMax[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'Rmin max'" [expression]="'SPACE = RMinMax[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'R64max min'" [expression]="'SPACE = R64MaxMin[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'Rmax min'" [expression]="'SPACE = RMaxMin[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'Zmin+'" [expression]="'SPACE = ZMinPlus[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'Zmin$\\times$'" [expression]="'SPACE = ZMinMult[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'Zmax+'" [expression]="'SPACE = ZMaxPlus[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'Zmax$\\times$'" [expression]="'SPACE = ZMaxMult[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'Zmin max'" [expression]="'SPACE = ZMinMax[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'Zmax min'" [expression]="'SPACE = ZMaxMin[];'" [moveBack]="2" [description]=""/>
+    <app-tool-bar-button [title]="'Ax=b'" [expression]="'SPACE = ZMinPlus[x, y]; A = [[1, 1],[2, 0]];\\newline b = [10, 7];\\newline \\solveLAETropic(A, b);'" [moveBack]="0" [description]="'Solving system of linear equations: Ax = b '"/>
+    <app-tool-bar-button [title]="'Ax ≤ b'" [expression]="'SPACE = ZMinPlus[x, y];  A = [[1, 1],[2, 0]];\\newline b = [10, 7];\\newline \\solveLAITropic(A, b);'" [moveBack]="0" [description]="'Solving system of linear inequalities:  Ax ≤ b'"/>
+    <app-tool-bar-button [title]="'Ax+b=x'" [expression]="'SPACE = R64MaxPlus[x, y];  A = [[0 , -2 ], [-\\infty, 0 ]];  b = [ 1 , -\\infty ];\\newline \\BellmanEquation(A, b);'" [moveBack]="0" [description]="'Bellman matrix equation: Ax + b = x'"/>
+    <app-tool-bar-button [title]="'Ax+b≤x'" [expression]="'SPACE = R64MaxPlus[x, y];  A = [[0 , -2 ], [-\\infty, 0 ]];  b = [ 1 , -\\infty ];\\newline \\BellmanInequality(A, b);'" [moveBack]="0" [description]="'Bellman matrix inequality: Ax + b ≤ x'"/>
+  </app-tool-bar-expansion>
+
+  <app-tool-bar-expansion [title]="'Algebraic manipulations'">
+    <app-tool-bar-button [title]="'factor'" [expression]="'\\factor();'" [moveBack]="2" [description]="'factor'"/>
+    <app-tool-bar-button [title]="'expand'" [expression]="'\\expand();'" [moveBack]="2" [description]="'expand'"/>
+  </app-tool-bar-expansion>
+
+  <app-tool-bar-expansion [title]="'Transcendental manipulations'">
+  <app-tool-bar-button [title]="'Factor'" [expression]="'\\Factor();'" [moveBack]="2" [description]="'Factor'"/>
+  <app-tool-bar-button [title]="'Expand'" [expression]="'\\Expand();'" [moveBack]="2" [description]="'Expand'"/>
 </app-tool-bar-expansion>
 
 
+</app-tool-bar-expansion>
