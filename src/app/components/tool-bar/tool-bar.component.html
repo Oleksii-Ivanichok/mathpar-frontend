@@ -413,3 +413,22 @@
 </app-tool-bar-expansion>
 
 </app-tool-bar-expansion>
+<app-tool-bar-expansion [title]="'Cluster'">
+  <app-tool-bar-expansion [title]="'Functions'">
+    <app-tool-bar-button [title]="'getStatus'" [expression]="'\\getStatus();'" [moveBack]="2" [description]="'Returns status of task with given taskId'"/>
+    <app-tool-bar-button [title]="'getCalcResult'" [expression]="'\\getCalcResult();'" [moveBack]="2" [description]="'Returns result of successfully completed task with given taskId'"/>
+    <app-tool-bar-button [title]="'matrixMult:1x8'" [expression]="'\\matMultPar1x8(A, B);'" [moveBack]="5" [description]="'Queues new task for matrix multiplication using 1x8 algorithm'"/>
+    <app-tool-bar-button [title]="'Tropical: Ax=x'" [expression]="'SPACE = ZMinPlus[x, y]; A = [[1, 1],[2, 0]];\\newline \\BellmanEquationPar(A);'" [moveBack]="0" [description]="'Bellman matrix equation: Ax + b = x'"/>
+    <app-tool-bar-button [title]="'Tropical: Ax ≤ x'" [expression]="'SPACE = ZMinPlus[x, y];  A = [[1, 1],[2, 0]]; \\newline \\BellmanInequalityPar(A);'" [moveBack]="0" [description]="'Bellman matrix inequality: Ax + b ≤ x'"/>
+    <app-tool-bar-button [title]="'Tropical: Ax+b=x'" [expression]="'SPACE = R64MaxPlus[x, y];  A = [[0, -2], [-\\infty, 0]];  b = [1, -\\infty];\\newline \\BellmanEquationPar(A, b);'" [moveBack]="0" [description]="'Bellman matrix equation: Ax + b = x'"/>
+    <app-tool-bar-button [title]="'Tropical: Ax+b≤x'" [expression]="'SPACE = R64MaxPlus[x, y];  A = [[0, -2], [-\\infty, 0]];  b = [1, -\\infty];\\newline \\BellmanInequalityPar(A, b);'" [moveBack]="0" [description]="'Bellman matrix inequality: Ax + b ≤ x'"/>
+  </app-tool-bar-expansion>
+
+  <app-tool-bar-expansion [title]="'Constants'">
+    <app-tool-bar-button [title]="'TOTALNODES'" [expression]="'\\TOTALNODES = ;'" [moveBack]="1" [description]="'Total number of nodes which provides for the computation'"/>
+    <app-tool-bar-button [title]="'PROCPERNODE'" [expression]="'\\PROCPERNODE = ;'" [moveBack]="1" [description]="'Number of processors (cores) on a single node'"/>
+    <app-tool-bar-button [title]="'CLUSTERTIME'" [expression]="'\\CLUSTERTIME = ;'" [moveBack]="1" [description]="'Maximum time (in minutes) execution of the program, after which the program is forced to end'"/>
+    <app-tool-bar-button [title]="'MAXCLUSTERMEMORY'" [expression]="'\\MAXCLUSTERMEMORY = ;'" [moveBack]="1" [description]="'Maximum memory for java (-Xmx option)'"/>
+  </app-tool-bar-expansion>
+
+</app-tool-bar-expansion>

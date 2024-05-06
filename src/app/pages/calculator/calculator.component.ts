@@ -23,11 +23,7 @@ export class CalculatorComponent implements OnInit, OnDestroy {
   uniqueIdCounter: number = 1;
   calculatorInputs: CalculatorInput[] = [{
     expressionData: {
-      expression: 'SPACE = R64[x, y];\n' +
-        'f1 = \\sin(x);\n' +
-        'f2 = \\sin(\\cos(x + \\tg(y)));\n' +
-        'f3 = \\sin(x^2) + y;\n' +
-        '\\print(f1, f2, f3);',
+      expression: '',
       moveBack: 0
     }, isActive: true, id: 0
   }];
@@ -52,20 +48,25 @@ export class CalculatorComponent implements OnInit, OnDestroy {
     const index = this.calculatorInputs.findIndex(input => input.id === id) + 1;
     this.calculatorInputs.splice(index || 0, 0, {
       expressionData: {expression: ''},
-      isActive: false,
+      isActive: !index,
       id: this.uniqueIdCounter++
     })
   }
 
   setActive(id: number) {
     const index = this.calculatorInputs.findIndex(input => input.id === id);
-    this.calculatorInputs[this.lastActiveIndex].isActive = false;
+    this.calculatorInputs.forEach(input => input.isActive = false)
     this.calculatorInputs[index].isActive = true;
     this.lastActiveIndex = index;
   }
 
-  deleteInput(index: number) {
-    this.calculatorInputs = this.calculatorInputs.filter(input => input.id !== index)
+  deleteInput(id: number) {
+    const inputToDeleteIndex = this.calculatorInputs.findIndex(input => input.id === id);
+    const wasInputActive = this.calculatorInputs[inputToDeleteIndex].isActive;
+    this.calculatorInputs = this.calculatorInputs.filter(input => input.id !== id)
+    if(wasInputActive && this.calculatorInputs.length){
+      this.calculatorInputs[0].isActive = true;
+    }
   }
 
 }

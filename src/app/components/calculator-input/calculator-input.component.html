@@ -1,4 +1,4 @@
-<mat-card class="example-card" [ngClass]="{'active-calculator-input': isActive}">
+<mat-card [ngClass]="{'active-calculator-input': isActive}">
   <mat-card-header>
     <mat-card-actions>
       <button mat-mini-fab color="accent" (click)="calculate()">
@@ -21,7 +21,7 @@
 
   <mat-card-content>
     @if (mathJaxEnabled) {
-      <div [mathjax]="mathJaxInput" (click)="mathJaxEnabled = !mathJaxEnabled"></div>
+      <div [mathjax]="mathJaxInput" (click)="mathJaxEnabled = !mathJaxEnabled" class="bg-white"></div>
     } @else {
       <textarea
         [formControl]="formControl"
@@ -32,11 +32,10 @@
         #input
       ></textarea>
     }
+    @if (calculationResult && !mathJaxEnabled) {
+      <div [innerHTML]="calculationResult" class="bg-white"></div>
+    }
   </mat-card-content>
-  @if (calculationResult && !mathJaxEnabled) {
-    <mat-card-content>
-      <div [innerHTML]="calculationResult"></div>
-    </mat-card-content>
-  }
+
 
 </mat-card>
