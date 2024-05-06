@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card class="example-card" [ngClass]="{'active-calculator-input': isActive}">
   <mat-card-header>
     <mat-card-actions>
       <button mat-mini-fab color="accent" (click)="calculate()">

@@ -12,7 +12,7 @@ import {CdkTextareaAutosize} from "@angular/cdk/text-field";
 import {FormControl, ReactiveFormsModule} from "@angular/forms";
 import {CommandsService} from "../../services/commands.service";
 import {CalculateResult, ExpressionData} from "../../interfaces/interfaces";
-import {NgIf} from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
 import {MathjaxModule} from "mathjax-angular";
 import {ToolBarButtonComponent} from "../tool-bar/components/tool-bar-button/tool-bar-button.component";
 
@@ -31,7 +31,8 @@ import {ToolBarButtonComponent} from "../tool-bar/components/tool-bar-button/too
     ReactiveFormsModule,
     NgIf,
     MathjaxModule,
-    ToolBarButtonComponent
+    ToolBarButtonComponent,
+    NgClass
   ],
   templateUrl: './calculator-input.component.html',
   styleUrl: './calculator-input.component.scss'

@@ -9,13 +9,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 :root {
   --accent-color: #ff4081;
-  --accent-text-color: white;
+  --primary-color: #3f51b5;
+  --text-color: white;
 }
 
 .bg-accent{
   background: var(--accent-color) !important;
-  --mat-expansion-header-indicator-color: var(--accent-text-color);
-  --mat-expansion-header-text-color: var(--accent-text-color);
+  --mat-expansion-header-indicator-color: var(--text-color);
+  --mat-expansion-header-text-color: var(--text-color);
   &:hover{
     background: var(--accent-color) !important;
   }
