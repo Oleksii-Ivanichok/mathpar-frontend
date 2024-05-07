@@ -1,4 +1,4 @@
-"C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security --disable-gpu --user-data-dir=%LOCALAPPDATA%\Google\chromeTemp
+run `npm start` to run
 # MathparAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
