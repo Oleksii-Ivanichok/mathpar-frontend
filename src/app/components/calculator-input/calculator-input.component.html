@@ -1,21 +1,29 @@
 <mat-card [ngClass]="{'active-calculator-input': isActive}">
   <mat-card-header>
     <mat-card-actions>
-      <button mat-mini-fab color="accent" (click)="calculate()">
-        <mat-icon fontIcon="play_arrow"></mat-icon>
-      </button>
-      <button mat-mini-fab color="accent" class="fix-disabled-button-color" [disabled]="!mathJaxInput" (click)="mathJaxEnabled = !mathJaxEnabled">
-        <mat-icon fontIcon="shuffle"></mat-icon>
-      </button>
-      <button mat-mini-fab color="accent" (click)="addInput.emit()">
-        <mat-icon fontIcon="add"></mat-icon>
-      </button>
-      <button mat-mini-fab color="accent" (click)="deleteInput.emit()">
-        <mat-icon fontIcon="close"></mat-icon>
-      </button>
-      <button mat-mini-fab color="accent" (click)="resetInput()">
-        <mat-icon fontIcon="C" class="fix-letter-icon"></mat-icon>
-      </button>
+      <div>
+        <button mat-mini-fab color="accent" (click)="calculate()">
+          <mat-icon fontIcon="play_arrow"></mat-icon>
+        </button>
+        <button mat-mini-fab color="accent" class="fix-disabled-button-color" [disabled]="!mathJaxInput"
+                (click)="mathJaxEnabled = !mathJaxEnabled">
+          <mat-icon fontIcon="shuffle"></mat-icon>
+        </button>
+        <button mat-mini-fab color="accent" (click)="addInput.emit()">
+          <mat-icon fontIcon="add"></mat-icon>
+        </button>
+      </div>
+      <div>
+        <button mat-mini-fab color="accent" (click)="deleteInput.emit()">
+          <mat-icon fontIcon="close"></mat-icon>
+        </button>
+        <button mat-mini-fab color="accent" (click)="cleanVariables()">
+          <mat-icon fontIcon="C" class="fix-letter-icon"></mat-icon>
+        </button>
+        <button mat-mini-fab color="accent" (click)="resetInput()">
+          <mat-icon fontIcon="cleaning_services"></mat-icon>
+        </button>
+      </div>
     </mat-card-actions>
   </mat-card-header>
 
@@ -33,7 +41,7 @@
       ></textarea>
     }
     @if (calculationResult && !mathJaxEnabled) {
-      @if(lastCalculationResult){
+      @if (lastCalculationResult) {
         <div [innerHTML]="calculationResult" class="bg-white calculation-result"></div>
       } @else {
         <div class="text-accent bg-white">Wrong input:</div>

@@ -2,6 +2,7 @@
 <div>
   @for (input of calculatorInputs; track input.id) {
     <app-calculator-input [expressionData]="input.expressionData" [isActive]="input.isActive"
+                          [inputId]="input.id"
                           (setActive)="setActive(input.id)" (deleteInput)="deleteInput(input.id)"
                           (addInput)="addInput(input.id)"
     />

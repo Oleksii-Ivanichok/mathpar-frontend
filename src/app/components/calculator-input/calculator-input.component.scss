@@ -1,20 +1,31 @@
-mat-card{
+mat-card {
   border: 1px solid var(--primary-color)
 }
-textarea{
+
+textarea {
   width: 100%;
   font-size: 16px;
 }
-mat-card-header{
+
+mat-card-header {
   padding-top: 0;
 }
-mat-card-actions{
+
+mat-card-actions {
   display: flex;
-  gap: 5px;
+  justify-content: space-between;
+  width: 100%;
+
+  div {
+    display: flex;
+    gap: 5px;
+  }
 }
-.active-calculator-input{
+
+.active-calculator-input {
   background: var(--primary-color);
 }
-.calculation-result{
+
+.calculation-result {
   padding: 2px;
 }

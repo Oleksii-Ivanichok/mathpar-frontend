@@ -1,5 +1,6 @@
 export interface CalculatePayload {
   task: string;
+  sectionId: number;
 }
 export interface CalculateResult {
   result: string;

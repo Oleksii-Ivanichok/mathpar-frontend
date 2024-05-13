@@ -41,6 +41,7 @@ export class CalculatorInputComponent implements OnChanges {
   @ViewChild('input') inputRef!: ElementRef<HTMLTextAreaElement>;
   @Input() expressionData!: ExpressionData;
   @Input() isActive!: boolean;
+  @Input() inputId!: number;
   @Output() setActive = new EventEmitter<void>();
   @Output() deleteInput = new EventEmitter<void>();
   @Output() addInput = new EventEmitter<void>;
@@ -50,6 +51,7 @@ export class CalculatorInputComponent implements OnChanges {
   mathJaxEnabled: boolean = false;
   mathJaxInput: string = '';
   lastCalculationResult: boolean = false;
+
   constructor(private commandsService: CommandsService) {
   }
 
@@ -74,7 +76,10 @@ export class CalculatorInputComponent implements OnChanges {
   }
 
   calculate() {
-    this.commandsService.calculate({task: this.formControl.value}).subscribe((response: CalculateResult) => {
+    this.commandsService.calculate({
+      sectionId: this.inputId,
+      task: this.formControl.value,
+    }).subscribe((response: CalculateResult) => {
       console.log(response)
       if (response.status === "OK") {
         this.calculationResult = response.result.replace(/\n/g, '<br>');
@@ -95,5 +100,12 @@ export class CalculatorInputComponent implements OnChanges {
     this.calculationResult = '';
     this.mathJaxEnabled = false;
     this.mathJaxInput = '';
+  }
+
+  cleanVariables() {
+    this.commandsService.calculate({
+      sectionId: this.inputId,
+      task: '\\clean();'
+    })
   }
 }
