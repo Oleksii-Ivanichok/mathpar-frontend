@@ -17,6 +17,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background: var(--accent-color) !important;
   }
 }
+.bg-primary{
+  background: var(--primary-color) !important;
+  --mat-expansion-header-indicator-color: var(--text-color);
+  --mat-expansion-header-text-color: var(--text-color);
+  &:hover{
+    background: var(--primary-color) !important;
+  }
+}
 .bg-white{
   background: white;
 }

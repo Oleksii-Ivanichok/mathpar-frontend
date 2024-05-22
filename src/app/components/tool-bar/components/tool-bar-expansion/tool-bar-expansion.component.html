@@ -1,5 +1,5 @@
 <mat-expansion-panel class="toolbar-expansion">
-  <mat-expansion-panel-header [ngClass]="{'bg-accent': isNested}">
+  <mat-expansion-panel-header [ngClass]="{'bg-accent': isNested, 'bg-primary': !isNested}">
     <mat-panel-title class="title">
       {{ title }}
     </mat-panel-title>
